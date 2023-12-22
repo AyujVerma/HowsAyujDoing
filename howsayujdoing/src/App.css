@@ -27,6 +27,7 @@
   box-shadow: 1px 1px 50px 1px rgba(20,20,20,0.5);
   border-radius: 10px;
   margin-bottom: 3vh;
+  border: 8px solid #FFFAF1;
 }
 
 .album-cover {
@@ -36,29 +37,30 @@
 
 .text-below {
   text-align: center;
+  background-color: #FFFAF1;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.title,
+.artists,
+.mood {
+  font-family: 'Raleway', sans-serif;
+  background-color: #FFFAF1;
 }
 
 .title {
   font-size: 1.8em;
   font-weight: 800;
-  font-family: 'Raleway', sans-serif;
 }
 
 .artists {
-  font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-style: italic;
   font-size: 1.01em;
 }
 
 .mood {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: 1.2em;
-}
-
-.color {
-  font-family: 'Raleway', sans-serif;
   font-weight: 600;
   font-size: 1.2em;
 }

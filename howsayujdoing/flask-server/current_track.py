@@ -1,5 +1,6 @@
 import os
 import requests
+from pprint import pprint # Prints dictionaries nicely.
 from dotenv import load_dotenv # Loads .env file.
 import json
 

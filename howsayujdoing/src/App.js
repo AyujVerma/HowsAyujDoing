@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import socketIOClient from 'socket.io-client';
-
-const ENDPOINT = 'http://localhost:5000';  // Change to Flask server's address
 
 const App = () => {
   const [currentInfo, setCurrentInfo] = useState({
@@ -19,18 +16,6 @@ const App = () => {
   const [mood, setMood] = useState('');
   const [innerSquareColor, setInnerSquareColor] = useState('');
   const [prevTrackInfo, setPrevTrackInfo] = useState(null);
-
-  useEffect(() => {
-    const socket = socketIOClient(ENDPOINT);
-
-    socket.on('response', (data) => {
-      console.log('Socket response:', data);
-    });
-
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
