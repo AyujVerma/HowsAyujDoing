@@ -17,4 +17,6 @@ def serve_react_app():
     return send_from_directory('static', 'index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use Waitress as the production server
+    from waitress import serve
+    serve(app, host='0.0.0.0', port=5000)
