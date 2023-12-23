@@ -5,12 +5,12 @@ const App = () => {
   const [currentInfo, setCurrentInfo] = useState({
     type: null,
     id: null,
-    name: null,
+    name: 'Offline',
     link: null,
     duration: null,
     progress: null,
-    image: null,
-    artists: null,
+    image: 'https://drive.google.com/uc?id=1U-vVukBvPqdjw23i1GTMSC_zXLR08soX',
+    artists: ['Ayuj'],
   });
   const moods = ['Joy', 'Trust', 'Fear', 'Surprise', 'Sadness', 'Anticipation', 'Anger', 'Disgust']; // Taken from Plutchik's eight basic emotions
   const [mood, setMood] = useState('');
