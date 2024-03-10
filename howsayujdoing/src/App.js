@@ -20,8 +20,8 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await fetch('https://hows-ayuj-doing.onrender.com/api/current-track');
-        const response = await fetch('http://localhost:5000/api/current-track');
+        const response = await fetch('https://hows-ayuj-doing.onrender.com/api/current-track');
+        // const response = await fetch('http://localhost:5000/api/current-track'); Debugging purposes.
         const data = await response.json();
         setCurrentInfo(data);
       } catch (error) {
