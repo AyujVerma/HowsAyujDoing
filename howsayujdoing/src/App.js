@@ -9,7 +9,7 @@ const App = () => {
     link: null,
     duration: null,
     progress: null,
-    image: 'https://drive.google.com/uc?id=1U-vVukBvPqdjw23i1GTMSC_zXLR08soX',
+    image: 'https://blog.namarora.me/images/ayuj_sleeping.jpeg',
     artists: ['Ayuj'],
   });
   const moods = ['Joy', 'Trust', 'Fear', 'Surprise', 'Sadness', 'Anticipation', 'Anger', 'Disgust']; // Taken from Plutchik's eight basic emotions
@@ -20,9 +20,9 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://hows-ayuj-doing.onrender.com/api/current-track');
+        // const response = await fetch('https://hows-ayuj-doing.onrender.com/api/current-track');
+        const response = await fetch('http://localhost:5000/api/current-track');
         const data = await response.json();
-        console.log(data);
         setCurrentInfo(data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -43,7 +43,6 @@ const App = () => {
     {
       return;
     }
-
     switch (currentInfo.type) {
       case 'track':
         const randomMood = getRandomMood();

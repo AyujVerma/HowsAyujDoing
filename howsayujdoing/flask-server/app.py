@@ -1,6 +1,5 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
-from flask import send_from_directory
 from current_track import get_current_track, get_access_token
 
 app = Flask(__name__)

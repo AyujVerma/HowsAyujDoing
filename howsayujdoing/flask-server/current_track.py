@@ -70,11 +70,11 @@ def get_current_track(access_token):
                 current_info['artists'] = artists_names
         elif current_info['type'] == 'ad':
             current_info['name'] = 'Advertisement'
-            current_info['image'] = 'https://drive.google.com/uc?id=1dDSsjkDUX_2OM3iFTXxC1POubWCZObzH'
+            current_info['image'] = 'https://blog.namarora.me/images/ayuj_browsing.jpeg'
             current_info['artists'] = ['Coporate America']
         else:
             current_info['name'] = 'Offline'
-            current_info['image'] = 'https://drive.google.com/uc?id=1U-vVukBvPqdjw23i1GTMSC_zXLR08soX'
+            current_info['image'] = 'https://blog.namarora.me/images/ayuj_sleeping.jpeg'
             current_info['artists'] = ['Ayuj']
 
     except json.JSONDecodeError as e:
@@ -83,9 +83,8 @@ def get_current_track(access_token):
 
         # Set default values for current_info
         current_info['name'] = 'Offline'
-        current_info['image'] = 'https://drive.google.com/uc?id=1U-vVukBvPqdjw23i1GTMSC_zXLR08soX'
+        current_info['image'] = 'https://blog.namarora.me/images/ayuj_sleeping.jpeg'
         current_info['artists'] = ['Ayuj']
-
     except Exception as e:
         print(f"Error processing response: {e}")
     return current_info
