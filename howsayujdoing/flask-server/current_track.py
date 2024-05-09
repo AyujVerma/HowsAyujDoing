@@ -1,29 +1,9 @@
-import os
 import requests
 from pprint import pprint # Prints dictionaries nicely.
-from dotenv import load_dotenv # Loads .env file.
+from spotify_auth import get_access_token
 import json
 
-# Load environment variables from the .env file
-load_dotenv('auth.env')
-
 SPOTIFY_GET_CURRENT_TRACK_URL = 'https://api.spotify.com/v1/me/player/currently-playing'
-SPOTIFY_ACCESS_TOKEN = os.getenv('SPOTIFY_ACCESS_TOKEN')
-SPOTIFY_REFRESH_TOKEN = os.getenv('SPOTIFY_REFRESH_TOKEN')
-SPOTIFY_CLIENT_ID = os.getenv('SPOTIFY_CLIENT_ID')
-SPOTIFY_CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
-
-def get_access_token():
-    auth_url = 'https://accounts.spotify.com/api/token'
-    data = {
-        'grant_type': 'refresh_token',
-        'refresh_token': SPOTIFY_REFRESH_TOKEN,
-        'client_id': SPOTIFY_CLIENT_ID,
-        'client_secret': SPOTIFY_CLIENT_SECRET,
-    }
-
-    response = requests.post(auth_url, data=data)
-    return response.json().get('access_token')
 
 def get_current_track(access_token):
     response = requests.get(
