@@ -68,6 +68,7 @@ def get_current_track(access_token):
         current_info['name'] = 'Offline'
         current_info['image'] = 'https://blog.namarora.me/images/ayuj_sleeping.jpeg'
         current_info['artists'] = ['Ayuj']
+        current_info['mood'] = 'Asleep'
     except Exception as e:
         print(f"Error processing response: {e}")
     return current_info
