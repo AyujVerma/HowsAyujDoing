@@ -1,29 +1,9 @@
-import os
 import requests
 from pprint import pprint # Prints dictionaries nicely.
-from dotenv import load_dotenv # Loads .env file.
+from spotify_auth import get_access_token
 import json
 
-# Load environment variables from the .env file
-load_dotenv('auth.env')
-
 SPOTIFY_GET_CURRENT_TRACK_URL = 'https://api.spotify.com/v1/me/player/currently-playing'
-SPOTIFY_ACCESS_TOKEN = os.getenv('SPOTIFY_ACCESS_TOKEN')
-SPOTIFY_REFRESH_TOKEN = os.getenv('SPOTIFY_REFRESH_TOKEN')
-SPOTIFY_CLIENT_ID = os.getenv('SPOTIFY_CLIENT_ID')
-SPOTIFY_CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
-
-def get_access_token():
-    auth_url = 'https://accounts.spotify.com/api/token'
-    data = {
-        'grant_type': 'refresh_token',
-        'refresh_token': SPOTIFY_REFRESH_TOKEN,
-        'client_id': SPOTIFY_CLIENT_ID,
-        'client_secret': SPOTIFY_CLIENT_SECRET,
-    }
-
-    response = requests.post(auth_url, data=data)
-    return response.json().get('access_token')
 
 def get_current_track(access_token):
     response = requests.get(
@@ -51,6 +31,7 @@ def get_current_track(access_token):
         "progress": None,
         "image": None,
         "artists": None,
+        "mood": None
     }
     try:
         resp_json = response.json()
@@ -70,12 +51,14 @@ def get_current_track(access_token):
                 current_info['artists'] = artists_names
         elif current_info['type'] == 'ad':
             current_info['name'] = 'Advertisement'
-            current_info['image'] = 'https://drive.google.com/uc?id=1dDSsjkDUX_2OM3iFTXxC1POubWCZObzH'
+            current_info['image'] = 'https://blog.namarora.me/images/ayuj_browsing.jpeg'
             current_info['artists'] = ['Coporate America']
+            current_info['mood'] = 'Impatient'
         else:
             current_info['name'] = 'Offline'
-            current_info['image'] = 'https://drive.google.com/uc?id=1U-vVukBvPqdjw23i1GTMSC_zXLR08soX'
+            current_info['image'] = 'https://blog.namarora.me/images/ayuj_sleeping.jpeg'
             current_info['artists'] = ['Ayuj']
+            current_info['mood'] = 'Asleep'
 
     except json.JSONDecodeError as e:
         # Handle the case where JSON decoding fails (e.g., when Spotify is closed)
@@ -83,9 +66,8 @@ def get_current_track(access_token):
 
         # Set default values for current_info
         current_info['name'] = 'Offline'
-        current_info['image'] = 'https://drive.google.com/uc?id=1U-vVukBvPqdjw23i1GTMSC_zXLR08soX'
+        current_info['image'] = 'https://blog.namarora.me/images/ayuj_sleeping.jpeg'
         current_info['artists'] = ['Ayuj']
-
     except Exception as e:
         print(f"Error processing response: {e}")
     return current_info
