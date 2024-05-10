@@ -65,7 +65,7 @@ def get_unique_track_ids(playlist_ids, mood):
                 "features": track_features,
                 "mood": mood
             }
-            print("Track ID: ", track_id, "Values: ", all_tracks_data[track_id])
+            # print("Track ID: ", track_id, "Values: ", all_tracks_data[track_id])
             time.sleep(interval)
 
 def get_title(id):
@@ -108,7 +108,6 @@ def get_title(id):
 
 def get_song_features(id):
     global access_token
-    print(access_token)
     SPOTIFY_GET_FEATURES_URL = f'https://api.spotify.com/v1/audio-features/{id}'
     
     # Ensure access token is available
@@ -135,16 +134,14 @@ def get_song_features(id):
     
     try:
         resp_json = response.json()
-        print(resp_json)
         features_list = [
-            resp_json.get("acousticness", 0),
             resp_json.get("danceability", 0),
             resp_json.get("energy", 0),
-            resp_json.get("instrumentalness", 0),
             resp_json.get("loudness", 0),
             resp_json.get("mode", 0),
-            resp_json.get("tempo", 0),
-            resp_json.get("valence", 0)
+            resp_json.get("acousticness", 0),
+            resp_json.get("valence", 0),
+            resp_json.get("tempo", 0)
         ]
     except json.JSONDecodeError as e:
         print(f"Error decoding JSON response: {e}")
@@ -160,19 +157,14 @@ def main():
     global all_tracks_data
     
     # Set up playlist IDs
-    # happy_playlist_ids = ['37i9dQZF1DX9XIFQuFvzM4', '37i9dQZF1DX889U0CL85jj', '37i9dQZF1DX8Dc28snyWrn', '37i9dQZF1DWYBO1MoTDhZI', '37i9dQZF1DX4fpCWaHOned', '37i9dQZF1DWSf2RDTDayIx', '37i9dQZF1DXa19sXUAHiO1', '37i9dQZF1DX7KNKjOK0o75', '37i9dQZF1DX2sUQwD7tbmL', '37i9dQZF1DWYzpSJHStHHx', '37i9dQZF1DX1BzILRveYHb', '37i9dQZF1DX6fhMYWIyuww']
-    # sad_playlist_ids = ['37i9dQZF1DWSqBruwoIXkA', '37i9dQZF1DWW2hj3ZtMbuO', '37i9dQZF1DX7gIoKXt0gmx', '37i9dQZF1DWZrBs4FjpxlE', '37i9dQZF1DX59NCqCqJtoH', '37i9dQZF1DWVV27DiNWxkR', '37i9dQZF1DWVrtsSlLKzro', '37i9dQZF1DWZUAeYvs88zc', '37i9dQZF1DWU4lunzhQdRx', '37i9dQZF1DWV1bxlagjEmb', '37i9dQZF1DX9AnYEthXLyU', '37i9dQZF1DX15JKV0q7shD']
+    happy_playlist_ids = ['37i9dQZF1DX9XIFQuFvzM4', '37i9dQZF1DX889U0CL85jj', '37i9dQZF1DX8Dc28snyWrn', '37i9dQZF1DWYBO1MoTDhZI', '37i9dQZF1DX4fpCWaHOned', '37i9dQZF1DWSf2RDTDayIx', '37i9dQZF1DXa19sXUAHiO1', '37i9dQZF1DX7KNKjOK0o75', '37i9dQZF1DX2sUQwD7tbmL', '37i9dQZF1DWYzpSJHStHHx', '37i9dQZF1DX1BzILRveYHb', '37i9dQZF1DX6fhMYWIyuww']
+    sad_playlist_ids = ['37i9dQZF1DWSqBruwoIXkA', '37i9dQZF1DWW2hj3ZtMbuO', '37i9dQZF1DX7gIoKXt0gmx', '37i9dQZF1DWZrBs4FjpxlE', '37i9dQZF1DX59NCqCqJtoH', '37i9dQZF1DWVV27DiNWxkR', '37i9dQZF1DWVrtsSlLKzro', '37i9dQZF1DWZUAeYvs88zc', '37i9dQZF1DWU4lunzhQdRx', '37i9dQZF1DWV1bxlagjEmb', '37i9dQZF1DX9AnYEthXLyU', '37i9dQZF1DX15JKV0q7shD']
     
-    # # Get unique track IDs
-    # get_unique_track_ids(happy_playlist_ids, "happy")
+    # Get unique track IDs
+    get_unique_track_ids(happy_playlist_ids, "happy")
     # print("DONE HAPPY SET!")
-    # get_unique_track_ids(sad_playlist_ids, "sad")
+    get_unique_track_ids(sad_playlist_ids, "sad")
     # print("DONE SAD SET!")
-    
-    access_token = get_access_token()
-    print(access_token)
-    print(get_title('11dFghVXANMlKmJXsNCbNl'))
-    print(get_song_features('11dFghVXANMlKmJXsNCbNl'))
         
     return all_tracks_data
 

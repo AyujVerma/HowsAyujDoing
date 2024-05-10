@@ -31,6 +31,7 @@ def get_current_track(access_token):
         "progress": None,
         "image": None,
         "artists": None,
+        "mood": None
     }
     try:
         resp_json = response.json()
@@ -52,10 +53,12 @@ def get_current_track(access_token):
             current_info['name'] = 'Advertisement'
             current_info['image'] = 'https://blog.namarora.me/images/ayuj_browsing.jpeg'
             current_info['artists'] = ['Coporate America']
+            current_info['mood'] = 'Impatient'
         else:
             current_info['name'] = 'Offline'
             current_info['image'] = 'https://blog.namarora.me/images/ayuj_sleeping.jpeg'
             current_info['artists'] = ['Ayuj']
+            current_info['mood'] = 'Asleep'
 
     except json.JSONDecodeError as e:
         # Handle the case where JSON decoding fails (e.g., when Spotify is closed)
