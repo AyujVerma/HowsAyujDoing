@@ -1,5 +1,5 @@
 # Moodify
-**Website:** https://ayuj.onrender.com/
+**Website:** [https://moodify-project.onrender.com](url)
 
 **Winter 2023:** 
 I wanted to learn more backend development. Combining my interests in music, I created a Flask application that uses Spotify RESTful APIs to retrieve the current track on my Spotify player. I displayed the song's name, artist(s), album cover, and randomly generated a mood and "background color" (more on the last two later). I also handled podcast episodes and advertisements (#broke). The application polls Spotify's APIs every 15 seconds, and if nothing is actively playing, then I also handle that as well. Feeling satisfied with what I had learned, I hosted my project on Render and thought that was it...
@@ -46,10 +46,10 @@ When using the Word2Vec embeddings, I also added the TF-IDF as a feature set wit
 When using the Roberta model's encodings with a neural network, my best tests gave me 81% accuracy. However, this model used up all my free GPU resources on Google Colab, and running this on a CPU took impossibly long.
 
 **Conclusions:**
-My website is currently up and running! I enjoyed being able to combine my interests in music with NLP, ML, and full-stack development!
+My website is currently up and running! If I am listening to a "happy" song, the background becomes yellow. If I am listening to a "sad" song, the background becomes blue. In the future, I hope to incorporate more moods. I enjoyed being able to combine my interests in music with NLP, ML, and full-stack development!
 
 **How Can I Join?**
-1. Clone the project and create an auth.env file in flask-server.
+1. Clone the project and create an "auth.env" file in flask-server.
 2. Create a Spotify developer account and make a project.
 3. In the .env file, input your "SPOTIFY_ACCESS_TOKEN", "SPOTIFY_REFRESH_TOKEN", "SPOTIFY_CLIENT_ID", and "SPOTIFY_CLIENT_SECRET."
 4. In App.js, fetch responses from your local host instead of my website.
