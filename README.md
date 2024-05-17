@@ -53,4 +53,9 @@ My website is currently up and running! I enjoyed being able to combine my inter
 2. Create a Spotify developer account and make a project.
 3. In the .env file, input your "SPOTIFY_ACCESS_TOKEN", "SPOTIFY_REFRESH_TOKEN", "SPOTIFY_CLIENT_ID", and "SPOTIFY_CLIENT_SECRET."
 4. In App.js, fetch responses from your local host instead of my website.
-5. Now you can run the app locally!
+5. Now you can run the app locally using:
+  In flask-server:
+   1. python -m venv myenv
+   2. myenv\Scripts\activate
+   3. pip install -r requirements.txt
+   4. python app.py
