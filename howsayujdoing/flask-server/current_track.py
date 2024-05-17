@@ -36,7 +36,7 @@ def get_current_track(access_token):
     try:
         resp_json = response.json()
         current_info['type'] = resp_json['currently_playing_type'] # Track, episode, ad, or none
-        if current_info['type'] == 'track' or current_info['type'] == 'episode':
+        if current_info['type'] == 'track':
             current_info['id'] = resp_json['item']['id']
             current_info['name'] = resp_json['item']['name']
             current_info['link'] = resp_json['item']['external_urls']['spotify']
@@ -49,6 +49,11 @@ def get_current_track(access_token):
                     [artist['name'] for artist in artists]
                 )
                 current_info['artists'] = artists_names
+        elif current_info['type'] == 'episode':
+            current_info['name'] = 'Podcast'
+            current_info['image'] = 'https://blog.namarora.me/images/ayuj_browsing.jpeg'
+            current_info['artists'] = ['Podcaster']
+            current_info['mood'] = 'Starstruck'
         elif current_info['type'] == 'ad':
             current_info['name'] = 'Advertisement'
             current_info['image'] = 'https://blog.namarora.me/images/ayuj_browsing.jpeg'
@@ -71,4 +76,5 @@ def get_current_track(access_token):
         current_info['mood'] = 'Asleep'
     except Exception as e:
         print(f"Error processing response: {e}")
+    print(current_info)
     return current_info
