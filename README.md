@@ -49,7 +49,7 @@ When using the Roberta model's encodings with a neural network, my best tests ga
 My website is currently up and running! I enjoyed being able to combine my interests in music with NLP, ML, and full-stack development!
 
 **How Can I Join?**
-1. Clone the project and create a .env file.
+1. Clone the project and create an auth.env file in flask-server.
 2. Create a Spotify developer account and make a project.
 3. In the .env file, input your "SPOTIFY_ACCESS_TOKEN", "SPOTIFY_REFRESH_TOKEN", "SPOTIFY_CLIENT_ID", and "SPOTIFY_CLIENT_SECRET."
 4. In App.js, fetch responses from your local host instead of my website.
