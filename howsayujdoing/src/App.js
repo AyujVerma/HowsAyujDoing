@@ -42,6 +42,7 @@ const App = () => {
     {
       return;
     }
+    // Remove above if statement? What is its purpose?
     switch (currentInfo.type) {
       case 'track':
         let hexColor = null
