@@ -21,7 +21,7 @@ After coming home, I was already bored at home. Fueled by my interests in NLP an
 **3) Data Pre-Processing Part 2:**
    NLP can't handle punctuation well, so I have to remove it. Replacing most punctuation is easy, but apostrophes have a lot of issues. Apostrophes are used to combine two words or shorten a word.
    
-   a) Here is where I quickly realized how complicated the English langauge is: contractions. The word "ain't" has all these meanings and it ain't pretty folks: "am not", "are not", "is not", "has not", and "have not." I made a dictionary to simply replace a contraction with its expanded form; it is not the most accurate solution, but it is a good enough heuristic.
+   a) Here is where I quickly realized how complicated the English langauge is: contractions. Simply removing the apostrophe from "ain't" results in "aint", which *ain't* a word. The word "ain't" has all these meanings and it *ain't* pretty folks: "am not", "are not", "is not", "has not", and "have not." I made a dictionary to simply replace a contraction with its expanded form; it is not the most accurate solution, but it is a good enough heuristic.
    
    b) "We gon' have a good time" would become "We gon (?) have a good time" without converting all postfixes of *-n'* to *-ing*.
    
