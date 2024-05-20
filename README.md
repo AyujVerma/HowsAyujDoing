@@ -54,8 +54,11 @@ My website is currently up and running! If I am listening to a "happy" song, the
 3. In the .env file, input your "SPOTIFY_ACCESS_TOKEN", "SPOTIFY_REFRESH_TOKEN", "SPOTIFY_CLIENT_ID", and "SPOTIFY_CLIENT_SECRET."
 4. In App.js, fetch responses from your local host instead of my website.
 5. Now you can run the app locally using:
-  In flask-server:
+   In flask-server:
    1. python -m venv myenv
    2. myenv\Scripts\activate
    3. pip install -r requirements.txt
    4. python app.py
+      
+   In src:
+   1. npm start
