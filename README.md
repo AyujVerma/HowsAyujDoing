@@ -1,5 +1,5 @@
 # Moodify
-**Website:** [https://moodify-project.onrender.com](url)
+**Website:** [https://moodify-project.onrender.com](https://moodify-project.onrender.com)
 
 **Winter 2023:** 
 I wanted to learn more backend development. Combining my interests in music, I created a Flask application that uses Spotify RESTful APIs to retrieve the current track on my Spotify player. I displayed the song's name, artist(s), album cover, and randomly generated a mood and "background color" (more on the last two later). I also handled podcast episodes and advertisements (#broke). The application polls Spotify's APIs every 15 seconds, and if nothing is actively playing, then I also handle that as well. Feeling satisfied with what I had learned, I hosted my project on Render and thought that was it...
